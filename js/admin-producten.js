@@ -158,7 +158,7 @@
     } catch (err) {
       console.error(err);
       els.formFout.textContent = err.message.includes("token")
-        ? "Opslaan mislukt: geen schrijftoegang ingesteld (zie GitHub-token op het dashboard)."
+        ? "Opslaan mislukt: geen schrijftoegang ingesteld (zie githubToken in js/config.js)."
         : `Opslaan mislukt: ${err.message}`;
     } finally {
       opslaanKnop.disabled = false;
