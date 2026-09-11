@@ -12,5 +12,5 @@ const CONFIG = {
   //
   // Vul dit token rechtstreeks in dit bestand in (niet via de chat/AI delen)
   // en commit het. Laat leeg om het portaal read-only te testen.
-  githubToken: "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",
+  githubToken: "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",
 };
