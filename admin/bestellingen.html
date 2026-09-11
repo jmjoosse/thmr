@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bestellingen</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1>Bestellingen</h1>
+    <div style="display: flex; gap: 16px; align-items: center">
+      <a href="dashboard.html">Terug naar admin</a>
+      <button class="link" id="uitloggen">Uitloggen</button>
+    </div>
+  </div>
+
+  <main class="inhoud">
+    <p class="cart-info">
+      Nieuwe bestellingen verschijnen hier zodra een klant bestelt (ververs de
+      pagina om de laatste stand te zien). Er wordt geen automatische e-mail
+      verstuurd — zie README voor uitbreiding met een externe koppeling.
+    </p>
+    <div id="bestellingen-lijst"></div>
+  </main>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/github-api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/bestel-utils.js"></script>
+  <script src="../js/admin-bestellingen.js"></script>
+</body>
+</html>

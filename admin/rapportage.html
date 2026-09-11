@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rapportage</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1>Rapportage</h1>
+    <div style="display: flex; gap: 16px; align-items: center">
+      <a href="dashboard.html">Terug naar admin</a>
+      <button class="link" id="uitloggen">Uitloggen</button>
+    </div>
+  </div>
+
+  <main class="inhoud">
+    <div style="display: flex; gap: 12px; margin-bottom: 24px">
+      <button id="export-excl" style="width: auto; padding: 10px 18px">
+        Exporteer CSV (excl. btw)
+      </button>
+      <button id="export-incl" style="width: auto; padding: 10px 18px">
+        Exporteer CSV (incl. btw)
+      </button>
+    </div>
+
+    <div id="rapport-inhoud">
+      <p>Rapport laden...</p>
+    </div>
+  </main>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/github-api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/bestel-utils.js"></script>
+  <script src="../js/admin-rapportage.js"></script>
+</body>
+</html>

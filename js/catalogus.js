@@ -22,9 +22,12 @@
     bestelPaneel: document.getElementById("bestel-paneel"),
   };
 
-  const [klanten, producten] = await Promise.all([
+  const LAGE_VOORRAAD_DREMPEL = 5;
+
+  const [klanten, producten, voorraad] = await Promise.all([
     fetch("data/customers.json", { cache: "no-store" }).then((r) => r.json()),
     fetch("data/products.json", { cache: "no-store" }).then((r) => r.json()),
+    fetch("data/stock.json", { cache: "no-store" }).then((r) => r.json()),
   ]);
 
   const klant = klanten.find((k) => k.id === klantId);
@@ -107,33 +110,55 @@
 
       for (const product of lijst) {
         const prijs = klant.prijslijst[product.id];
+        const inVoorraad = voorraad[product.id];
+        const uitverkocht = inVoorraad != null && inVoorraad <= 0;
+        const lageVoorraad = inVoorraad != null && inVoorraad > 0 && inVoorraad <= LAGE_VOORRAAD_DREMPEL;
+
         const tr = document.createElement("tr");
+        if (uitverkocht) delete cart[product.id];
+
         tr.innerHTML = `
-          <td>${product.naam}</td>
+          <td>
+            ${product.naam}
+            ${lageVoorraad ? `<div class="cart-info" style="color: var(--kleur-fout)">Nog maar ${inVoorraad} ${product.eenheid} op voorraad</div>` : ""}
+          </td>
           <td>${BestelUtils.formatEuro(prijs)} / ${product.eenheid}</td>
           <td>
-            <input
-              type="number"
-              min="0"
-              step="${product.eenheid === "kg" ? "0.1" : "1"}"
-              value="${cart[product.id] || ""}"
-              placeholder="0"
-              data-product-id="${product.id}"
-              class="aantal-invoer"
-            />
+            ${
+              uitverkocht
+                ? `<span class="status-badge status-ontvangen">Uitverkocht</span>`
+                : `<input
+                    type="number"
+                    min="0"
+                    ${inVoorraad != null ? `max="${inVoorraad}"` : ""}
+                    step="${product.eenheid === "kg" ? "0.1" : "1"}"
+                    value="${cart[product.id] || ""}"
+                    placeholder="0"
+                    data-product-id="${product.id}"
+                    class="aantal-invoer"
+                  />`
+            }
           </td>
         `;
         tbody.appendChild(tr);
-        tr.querySelector("input").addEventListener("input", (e) => {
-          const waarde = parseFloat(e.target.value);
-          if (!waarde || waarde <= 0) {
-            delete cart[product.id];
-          } else {
-            cart[product.id] = waarde;
-          }
-          bewaarCart();
-          renderCart();
-        });
+
+        const input = tr.querySelector("input");
+        if (input) {
+          input.addEventListener("input", (e) => {
+            let waarde = parseFloat(e.target.value);
+            if (inVoorraad != null && waarde > inVoorraad) {
+              waarde = inVoorraad;
+              e.target.value = waarde;
+            }
+            if (!waarde || waarde <= 0) {
+              delete cart[product.id];
+            } else {
+              cart[product.id] = waarde;
+            }
+            bewaarCart();
+            renderCart();
+          });
+        }
       }
 
       els.productenBody.appendChild(tabel);

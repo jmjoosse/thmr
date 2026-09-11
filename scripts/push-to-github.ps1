@@ -30,9 +30,17 @@ $files = @(
     "catalogus.html",
     "bestellingen.html",
     "js/admin-klanten.js",
+    "js/admin-producten.js",
+    "js/admin-voorraad.js",
+    "js/admin-bestellingen.js",
+    "js/admin-rapportage.js",
     "admin/index.html",
     "admin/dashboard.html",
     "admin/klanten.html",
+    "admin/producten.html",
+    "admin/voorraad.html",
+    "admin/bestellingen.html",
+    "admin/rapportage.html",
     "data/customers.json",
     "data/products.json",
     "data/stock.json",
@@ -62,7 +70,7 @@ foreach ($relPath in $files) {
     }
 
     $body = @{
-        message = "Stap 1+2+module4: catalogus, bestellen, admin klanten & prijzen ($relPath)"
+        message = "Alle MVP-modules: catalogus, bestellen, admin (klanten, producten, voorraad, bestellingen, rapportage) ($relPath)"
         content = $base64
         branch  = $Branch
     }

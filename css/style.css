@@ -302,3 +302,35 @@ main.inhoud {
   padding-top: 12px;
   font-size: 0.9rem;
 }
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 640px;
+}
+
+.bar-rij {
+  display: grid;
+  grid-template-columns: 80px 1fr 90px;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.bar-track {
+  background: var(--kleur-rand);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 18px;
+}
+
+.bar-vulling {
+  background: var(--kleur-accent);
+  height: 100%;
+}
+
+.bar-waarde {
+  text-align: right;
+  color: var(--kleur-tekst-zwak);
+}
