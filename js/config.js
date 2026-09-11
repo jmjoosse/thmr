@@ -1,6 +1,6 @@
 const CONFIG = {
   githubOwner: "jmjoosse",
-  githubRepo: "Thamar",
+  githubRepo: "thmr",
   githubBranch: "main",
 
   // Fine-grained personal access token met ALLEEN "Contents: Read and write"
