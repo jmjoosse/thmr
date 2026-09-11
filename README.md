@@ -14,7 +14,7 @@ data/
   settings.json        # adminPincodeHash, btwPercentage
   orders/               # één JSON-bestand per bestelling
 js/
-  config.js             # githubOwner/githubRepo/githubBranch + schrijftoken
+  config.js             # githubOwner/githubRepo/githubBranch (geen token hier!)
   github-api.js          # lees/schrijf-laag rond de GitHub Contents API
   auth.js                 # pincode-check (klant + admin) via SHA-256 hash
   bestel-utils.js          # prijs/datum-formattering, cutoff-/leverdag-berekening
@@ -92,11 +92,11 @@ bestanden in `data/orders/` meeneemt). Catalogus/inloggen werken wel meteen
 lokaal, want die lezen `customers.json`/`products.json`/`stock.json` gewoon
 van schijf.
 
-Zonder `js/config.js`'s `githubToken` ingevuld kun je alle pagina's bekijken en
-door de flows lopen, maar elke actie die iets wegschrijft (bestelling
-plaatsen, klant/product aanmaken, voorraad of status bijwerken) geeft een
-nette foutmelding ("nog geen schrijftoegang ingesteld") — verwacht gedrag,
-geen bug.
+Zonder een token ingesteld op het admin-dashboard (`admin/dashboard.html`)
+kun je alle pagina's bekijken en door de flows lopen, maar elke actie die
+iets wegschrijft (bestelling plaatsen, klant/product aanmaken, voorraad of
+status bijwerken) geeft een nette foutmelding ("nog geen schrijftoegang
+ingesteld") — verwacht gedrag, geen bug.
 
 Pincodes wijzigen: bereken de SHA-256 hash van de nieuwe pincode en zet die
 in `pincodeHash` (klant) resp. `adminPincodeHash` (settings.json). Bijvoorbeeld
@@ -112,27 +112,59 @@ crypto.subtle.digest("SHA-256", new TextEncoder().encode("nieuwe-pincode"))
 1. Maak een GitHub-repo aan en push deze map (zie `scripts/push-to-github.ps1`
    als er geen git beschikbaar is op de machine waar je vandaan werkt).
 2. Zet `js/config.js` op de juiste `githubOwner`/`githubRepo`.
-3. Zet in de repo-instellingen GitHub Pages aan (branch `main`, root).
-4. Maak een fine-grained personal access token met alleen **Contents:
-   Read and write** op deze ene repo, en vul dat rechtstreeks in
-   `js/config.js` (`githubToken`) in — niet via de chat/AI delen — en commit.
+3. Repo blijft **Public** (GitHub Pages voor een private repo vereist GitHub
+   Pro of hoger — zie de uitleg hieronder over waarom we dat niet gebruiken).
+4. Zet in de repo-instellingen GitHub Pages aan (branch `main`, root).
+5. Log in op `/admin/`, ga naar het dashboard, en vul daar een GitHub
+   personal access token in (classic, scope `public_repo`, Expiration "No
+   expiration" — zelfde aanmaakstappen als eerder). Dat token wordt **alleen
+   lokaal in die browser opgeslagen, nooit gecommit**.
 
-**Geaccepteerd risico:** dit token wordt met de site meegepubliceerd en is
-dus door elke bezoeker van de site te lezen (bv. via "bekijk paginabron"),
-ongeacht of de repo private of public staat — nodig zodat klanten zelf een
-bestelling kunnen wegschrijven zonder eigen account/token. Wie het token vindt
-kan bij alle data in de repo, inclusief andermans prijzen. Deze repo staat
-bovendien op **public**, dus `data/customers.json` (met prijzen) is sowieso
-door iedereen te lezen zodra er echte data in staat, los van dit token.
-Geaccepteerd voor een eerste werkende versie; te herzien zodra het platform
-meer klanten/omzet gaat dragen (dan alsnog een klein stukje eigen backend
-ervoor, of overstap naar Laravel, en/of de repo op private).
+### Waarom het token niet in `js/config.js` staat
+
+Eerdere opzet: het token stond gecommit in `js/config.js`, zodat élke
+bezoeker (ook klanten) er zelf mee kon schrijven. Dat liep vast op een
+GitHub-eigenaardigheid: **GitHub scant publieke repo's automatisch op eigen
+tokenformaten (`ghp_...`, `github_pat_...`) en trekt gevonden tokens binnen
+enkele minuten zelf in.** Elk token dat we committen werd zo ongeldig, hoe
+zorgvuldig ook aangemaakt/gekopieerd. Een private repo voorkomt die scan wél,
+maar GitHub Pages op een private repo vereist een betaald account (GitHub
+Pro+) — en dat wilden we niet.
+
+**Huidige, tijdelijke oplossing:** het token staat alleen lokaal bij de admin
+(nooit in een bestand, dus nooit gescand/ingetrokken), en de repo blijft
+gratis public. **Gevolg: klanten kunnen momenteel geen bestelling zelf
+plaatsen vanaf hun eigen apparaat** — de catalogus en het inloggen werken wel
+gewoon, maar bij "Bestelling plaatsen" krijgen ze een nette foutmelding
+("nog niet actief"), omdat hun browser geen token heeft. Alleen de admin kan
+dus momenteel schrijfacties doen (klanten/producten/voorraad/status
+bijwerken) vanaf het eigen, ingelogde apparaat.
+
+**Om klanten weer zelf te laten bestellen** (de kernfunctie uit de brief) is
+één van deze twee nodig:
+- **GitHub Pro** (~$4/maand): repo mag dan private, token mag terug in
+  `js/config.js` (scope dan `repo` i.p.v. `public_repo`), alles werkt zoals
+  oorspronkelijk gebouwd. Geen extra bouwwerk.
+- **Een klein gratis tussenlaagje** (bv. een serverless functie op
+  Cloudflare Workers/Netlify Functions, gratis tier): die bewaart het token
+  veilig als secret (nooit gecommit dus nooit gescand), en klant/browser
+  praat met die functie in plaats van rechtstreeks met de GitHub API. Repo
+  blijft public en gratis. Vereist wel extra bouwwerk — nog niet
+  geïmplementeerd.
+
+Bewust **niet** gekozen: het token in de client-code versleutelen/verbergen
+om GitHub's scan te omzeilen. Dat verandert niets aan de eigenlijke
+blootstelling (de ontsleuteling staat immers ook weer in diezelfde
+publieke client-side JS) en zet alleen GitHub's eigen vangnet buiten werking.
 
 ## Status — alle MVP-modules uit de brief zijn gebouwd
 
 - Stap 1 (repo-structuur + pincode-toegang): klaar
 - Module 1+2 (catalogus, winkelwagen, bestellen, bestelgeschiedenis,
-  herhaalbestelling): klaar
+  herhaalbestelling): klaar, **maar zelf bestellen door klanten staat tijdelijk
+  stil** door de token-kwestie hierboven — zie "GitHub Pages opzetten" voor
+  de twee opties om dit weer aan te zetten. Alle admin-modules hieronder
+  werken gewoon (die schrijven via het lokale admin-token).
 - Module 4 (admin: klanten aanmaken/bewerken, prijzen per klant, leverdagen +
   cutoff, sluitingsdagen, laatste login/bestelling zichtbaar): klaar
 - Module 6 (producten aanmaken/bewerken): klaar
