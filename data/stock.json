@@ -1,10 +1,11 @@
-﻿{
-    "brie-500g":  500,
-    "oude-kaas-kg":  40,
-    "geitenkaas-200g":  18,
-    "camembert-250g":  30,
-    "comte-12mnd-kg":  15,
-    "gouda-jong-belegen-kg":  50,
-    "roquefort-150g":  12,
-    "truffelkaas-300g":  4
+{
+  "brie-500g": 500,
+  "oude-kaas-kg": 40,
+  "geitenkaas-200g": 18,
+  "camembert-250g": 30,
+  "comte-12mnd-kg": 15,
+  "gouda-jong-belegen-kg": 50,
+  "roquefort-150g": 12,
+  "truffelkaas-300g": 4,
+  "kopkaas": 200
 }
