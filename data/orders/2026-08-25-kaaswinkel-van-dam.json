@@ -1,0 +1,38 @@
+{
+    "klant_id":  "kaaswinkel-van-dam",
+    "klant_naam":  "Kaaswinkel Van Dam",
+    "besteld_op":  "2026-08-22T17:00:00.000Z",
+    "leverdatum":  "2026-08-25",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "oude-kaas-kg",
+                       "naam":  "Oude kaas (belegen)",
+                       "eenheid":  "kg",
+                       "aantal":  4.5,
+                       "prijs":  8.1
+                   },
+                   {
+                       "product_id":  "gouda-jong-belegen-kg",
+                       "naam":  "Gouda jong belegen",
+                       "eenheid":  "kg",
+                       "aantal":  7,
+                       "prijs":  7.2
+                   },
+                   {
+                       "product_id":  "geitenkaas-200g",
+                       "naam":  "Geitenkaas 200g",
+                       "eenheid":  "stuk",
+                       "aantal":  7,
+                       "prijs":  3.6
+                   },
+                   {
+                       "product_id":  "camembert-250g",
+                       "naam":  "Camembert 250g",
+                       "eenheid":  "stuk",
+                       "aantal":  10,
+                       "prijs":  4
+                   }
+               ],
+    "totaal":  152.05
+}

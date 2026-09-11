@@ -1,0 +1,31 @@
+{
+    "klant_id":  "kaaswinkel-van-dam",
+    "klant_naam":  "Kaaswinkel Van Dam",
+    "besteld_op":  "2026-09-15T11:00:00.000Z",
+    "leverdatum":  "2026-09-18",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "geitenkaas-200g",
+                       "naam":  "Geitenkaas 200g",
+                       "eenheid":  "stuk",
+                       "aantal":  10,
+                       "prijs":  3.6
+                   },
+                   {
+                       "product_id":  "camembert-250g",
+                       "naam":  "Camembert 250g",
+                       "eenheid":  "stuk",
+                       "aantal":  4,
+                       "prijs":  4
+                   },
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  1,
+                       "prijs":  6.75
+                   }
+               ],
+    "totaal":  58.75
+}

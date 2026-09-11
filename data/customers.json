@@ -13,7 +13,94 @@
     "minimumbedrag": 25,
     "prijslijst": {
       "brie-500g": 4.10,
-      "oude-kaas-kg": 8.50
+      "oude-kaas-kg": 8.50,
+      "camembert-250g": 4.20,
+      "comte-12mnd-kg": 19.50,
+      "truffelkaas-300g": 9.25
+    },
+    "laatste_login": null,
+    "laatste_bestelling": null
+  },
+  {
+    "id": "restaurant-de-gouden-lepel",
+    "naam": "Restaurant De Gouden Lepel",
+    "actief": true,
+    "pincodeHash": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+    "leverdagen": ["dinsdag", "vrijdag"],
+    "cutoff": {
+      "dinsdag": { "dag": "maandag", "tijd": "17:00" },
+      "vrijdag": { "dag": "donderdag", "tijd": "17:00" }
+    },
+    "sluitingsdagen": [],
+    "minimumbedrag": 40,
+    "prijslijst": {
+      "brie-500g": 4.00,
+      "comte-12mnd-kg": 20.00,
+      "roquefort-150g": 6.90,
+      "truffelkaas-300g": 9.50,
+      "geitenkaas-200g": 3.75
+    },
+    "laatste_login": null,
+    "laatste_bestelling": null
+  },
+  {
+    "id": "kaaswinkel-van-dam",
+    "naam": "Kaaswinkel Van Dam",
+    "actief": true,
+    "pincodeHash": "edee29f882543b956620b26d0ee0e7e950399b1c4222f5de05e06425b4c995e9",
+    "leverdagen": ["woensdag"],
+    "cutoff": {
+      "woensdag": { "dag": "dinsdag", "tijd": "12:00" }
+    },
+    "sluitingsdagen": [],
+    "minimumbedrag": null,
+    "prijslijst": {
+      "brie-500g": 3.95,
+      "oude-kaas-kg": 8.10,
+      "geitenkaas-200g": 3.60,
+      "camembert-250g": 4.00,
+      "gouda-jong-belegen-kg": 7.20,
+      "roquefort-150g": 6.75
+    },
+    "laatste_login": null,
+    "laatste_bestelling": null
+  },
+  {
+    "id": "bistro-nooitgedacht",
+    "naam": "Bistro Nooitgedacht",
+    "actief": true,
+    "pincodeHash": "318aee3fed8c9d040d35a7fc1fa776fb31303833aa2de885354ddf3d44d8fb69",
+    "leverdagen": ["maandag", "woensdag", "vrijdag"],
+    "cutoff": {
+      "maandag": { "dag": "zondag", "tijd": "20:00" },
+      "woensdag": { "dag": "dinsdag", "tijd": "20:00" },
+      "vrijdag": { "dag": "donderdag", "tijd": "20:00" }
+    },
+    "sluitingsdagen": [],
+    "minimumbedrag": 30,
+    "prijslijst": {
+      "gouda-jong-belegen-kg": 7.50,
+      "oude-kaas-kg": 8.75,
+      "camembert-250g": 4.15,
+      "roquefort-150g": 7.10
+    },
+    "laatste_login": null,
+    "laatste_bestelling": null
+  },
+  {
+    "id": "cafe-de-kroon",
+    "naam": "Café De Kroon",
+    "actief": true,
+    "pincodeHash": "79f06f8fde333461739f220090a23cb2a79f6d714bee100d0e4b4af249294619",
+    "leverdagen": ["vrijdag"],
+    "cutoff": {
+      "vrijdag": { "dag": "maandag", "tijd": "18:00" }
+    },
+    "sluitingsdagen": [],
+    "minimumbedrag": null,
+    "prijslijst": {
+      "oude-kaas-kg": 9.00,
+      "brie-500g": 4.25
     },
     "laatste_login": null,
     "laatste_bestelling": null

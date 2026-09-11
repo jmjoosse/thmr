@@ -1,0 +1,31 @@
+{
+    "klant_id":  "restaurant-de-gouden-lepel",
+    "klant_naam":  "Restaurant De Gouden Lepel",
+    "besteld_op":  "2026-07-22T11:00:00.000Z",
+    "leverdatum":  "2026-07-25",
+    "status":  "bevestigd",
+    "regels":  [
+                   {
+                       "product_id":  "comte-12mnd-kg",
+                       "naam":  "Comté 12 maanden",
+                       "eenheid":  "kg",
+                       "aantal":  7,
+                       "prijs":  20
+                   },
+                   {
+                       "product_id":  "geitenkaas-200g",
+                       "naam":  "Geitenkaas 200g",
+                       "eenheid":  "stuk",
+                       "aantal":  2,
+                       "prijs":  3.75
+                   },
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  2,
+                       "prijs":  4
+                   }
+               ],
+    "totaal":  155.5
+}

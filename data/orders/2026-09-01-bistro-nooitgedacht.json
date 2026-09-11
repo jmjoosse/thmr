@@ -1,0 +1,17 @@
+{
+    "klant_id":  "bistro-nooitgedacht",
+    "klant_naam":  "Bistro Nooitgedacht",
+    "besteld_op":  "2026-08-29T15:00:00.000Z",
+    "leverdatum":  "2026-09-01",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  6,
+                       "prijs":  7.1
+                   }
+               ],
+    "totaal":  42.6
+}

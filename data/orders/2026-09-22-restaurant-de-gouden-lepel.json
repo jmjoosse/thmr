@@ -1,0 +1,17 @@
+{
+    "klant_id":  "restaurant-de-gouden-lepel",
+    "klant_naam":  "Restaurant De Gouden Lepel",
+    "besteld_op":  "2026-09-19T12:00:00.000Z",
+    "leverdatum":  "2026-09-22",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "comte-12mnd-kg",
+                       "naam":  "Comté 12 maanden",
+                       "eenheid":  "kg",
+                       "aantal":  4.5,
+                       "prijs":  20
+                   }
+               ],
+    "totaal":  90
+}

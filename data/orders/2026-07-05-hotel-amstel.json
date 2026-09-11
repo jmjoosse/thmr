@@ -1,0 +1,17 @@
+{
+    "klant_id":  "hotel-amstel",
+    "klant_naam":  "Hotel Amstel",
+    "besteld_op":  "2026-07-02T14:00:00.000Z",
+    "leverdatum":  "2026-07-05",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "comte-12mnd-kg",
+                       "naam":  "Comté 12 maanden",
+                       "eenheid":  "kg",
+                       "aantal":  2,
+                       "prijs":  19.5
+                   }
+               ],
+    "totaal":  39
+}

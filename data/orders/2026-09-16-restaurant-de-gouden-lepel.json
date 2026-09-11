@@ -1,0 +1,31 @@
+{
+    "klant_id":  "restaurant-de-gouden-lepel",
+    "klant_naam":  "Restaurant De Gouden Lepel",
+    "besteld_op":  "2026-09-13T17:00:00.000Z",
+    "leverdatum":  "2026-09-16",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  4,
+                       "prijs":  4
+                   },
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  10,
+                       "prijs":  6.9
+                   },
+                   {
+                       "product_id":  "geitenkaas-200g",
+                       "naam":  "Geitenkaas 200g",
+                       "eenheid":  "stuk",
+                       "aantal":  5,
+                       "prijs":  3.75
+                   }
+               ],
+    "totaal":  103.75
+}

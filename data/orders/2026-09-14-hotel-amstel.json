@@ -1,0 +1,17 @@
+{
+    "klant_id":  "hotel-amstel",
+    "klant_naam":  "Hotel Amstel",
+    "besteld_op":  "2026-09-11T17:00:00.000Z",
+    "leverdatum":  "2026-09-14",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "camembert-250g",
+                       "naam":  "Camembert 250g",
+                       "eenheid":  "stuk",
+                       "aantal":  1,
+                       "prijs":  4.2
+                   }
+               ],
+    "totaal":  4.2
+}

@@ -1,0 +1,24 @@
+{
+    "klant_id":  "kaaswinkel-van-dam",
+    "klant_naam":  "Kaaswinkel Van Dam",
+    "besteld_op":  "2026-08-02T16:00:00.000Z",
+    "leverdatum":  "2026-08-05",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  7,
+                       "prijs":  3.95
+                   },
+                   {
+                       "product_id":  "camembert-250g",
+                       "naam":  "Camembert 250g",
+                       "eenheid":  "stuk",
+                       "aantal":  10,
+                       "prijs":  4
+                   }
+               ],
+    "totaal":  67.65
+}

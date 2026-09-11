@@ -1,0 +1,24 @@
+{
+    "klant_id":  "cafe-de-kroon",
+    "klant_naam":  "Café De Kroon",
+    "besteld_op":  "2026-09-10T16:00:00.000Z",
+    "leverdatum":  "2026-09-13",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  3,
+                       "prijs":  4.25
+                   },
+                   {
+                       "product_id":  "oude-kaas-kg",
+                       "naam":  "Oude kaas (belegen)",
+                       "eenheid":  "kg",
+                       "aantal":  8.5,
+                       "prijs":  9
+                   }
+               ],
+    "totaal":  89.25
+}

@@ -1,0 +1,24 @@
+{
+    "klant_id":  "hotel-amstel",
+    "klant_naam":  "Hotel Amstel",
+    "besteld_op":  "2026-09-10T10:00:00.000Z",
+    "leverdatum":  "2026-09-13",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "oude-kaas-kg",
+                       "naam":  "Oude kaas (belegen)",
+                       "eenheid":  "kg",
+                       "aantal":  8,
+                       "prijs":  8.5
+                   },
+                   {
+                       "product_id":  "comte-12mnd-kg",
+                       "naam":  "Comté 12 maanden",
+                       "eenheid":  "kg",
+                       "aantal":  5.5,
+                       "prijs":  19.5
+                   }
+               ],
+    "totaal":  175.25
+}

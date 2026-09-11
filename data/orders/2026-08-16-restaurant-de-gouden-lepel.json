@@ -1,0 +1,24 @@
+{
+    "klant_id":  "restaurant-de-gouden-lepel",
+    "klant_naam":  "Restaurant De Gouden Lepel",
+    "besteld_op":  "2026-08-13T08:00:00.000Z",
+    "leverdatum":  "2026-08-16",
+    "status":  "bevestigd",
+    "regels":  [
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  4,
+                       "prijs":  4
+                   },
+                   {
+                       "product_id":  "truffelkaas-300g",
+                       "naam":  "Truffelkaas 300g",
+                       "eenheid":  "stuk",
+                       "aantal":  8,
+                       "prijs":  9.5
+                   }
+               ],
+    "totaal":  92
+}

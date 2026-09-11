@@ -88,7 +88,7 @@
         console.error(err);
         statusVeld.textContent = err.message.includes("token")
           ? "Opslaan mislukt: geen schrijftoegang ingesteld."
-          : "Opslaan mislukt.";
+          : `Opslaan mislukt: ${err.message}`;
       }
     });
     lijstEl.appendChild(kaart);

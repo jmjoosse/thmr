@@ -52,7 +52,7 @@
       console.error(err);
       formFout.textContent = err.message.includes("token")
         ? "Opslaan mislukt: geen schrijftoegang ingesteld (zie GitHub-token op het dashboard)."
-        : "Er ging iets mis bij het opslaan. Probeer het opnieuw.";
+        : `Opslaan mislukt: ${err.message}`;
     } finally {
       opslaanKnop.disabled = false;
       opslaanKnop.textContent = "Alles opslaan";

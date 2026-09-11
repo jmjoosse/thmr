@@ -46,8 +46,15 @@ $files = @(
     "data/stock.json",
     "data/settings.json",
     "data/orders/.gitkeep",
-    "serve.ps1"
+    "serve.ps1",
+    "scripts/generate-dummy-orders.ps1"
 )
+
+$ordersDir = Join-Path $Root "data/orders"
+if (Test-Path $ordersDir) {
+    $orderFiles = Get-ChildItem $ordersDir -Filter "*.json" | ForEach-Object { "data/orders/$($_.Name)" }
+    $files += $orderFiles
+}
 
 foreach ($relPath in $files) {
     $fullPath = Join-Path $Root $relPath
@@ -69,8 +76,13 @@ foreach ($relPath in $files) {
         # bestaat nog niet, geen sha nodig
     }
 
+    $commitMessage = if ($relPath -like "data/orders/*") {
+        "Voorbeelddata: bestelling toegevoegd ($relPath)"
+    } else {
+        "Alle MVP-modules: catalogus, bestellen, admin (klanten, producten, voorraad, bestellingen, rapportage) ($relPath)"
+    }
     $body = @{
-        message = "Alle MVP-modules: catalogus, bestellen, admin (klanten, producten, voorraad, bestellingen, rapportage) ($relPath)"
+        message = $commitMessage
         content = $base64
         branch  = $Branch
     }

@@ -1,0 +1,17 @@
+{
+    "klant_id":  "cafe-de-kroon",
+    "klant_naam":  "Café De Kroon",
+    "besteld_op":  "2026-08-15T09:00:00.000Z",
+    "leverdatum":  "2026-08-18",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "oude-kaas-kg",
+                       "naam":  "Oude kaas (belegen)",
+                       "eenheid":  "kg",
+                       "aantal":  7.5,
+                       "prijs":  9
+                   }
+               ],
+    "totaal":  67.5
+}

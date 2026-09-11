@@ -1,0 +1,31 @@
+{
+    "klant_id":  "bistro-nooitgedacht",
+    "klant_naam":  "Bistro Nooitgedacht",
+    "besteld_op":  "2026-07-24T17:00:00.000Z",
+    "leverdatum":  "2026-07-27",
+    "status":  "ontvangen",
+    "regels":  [
+                   {
+                       "product_id":  "oude-kaas-kg",
+                       "naam":  "Oude kaas (belegen)",
+                       "eenheid":  "kg",
+                       "aantal":  2,
+                       "prijs":  8.75
+                   },
+                   {
+                       "product_id":  "camembert-250g",
+                       "naam":  "Camembert 250g",
+                       "eenheid":  "stuk",
+                       "aantal":  6,
+                       "prijs":  4.15
+                   },
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  5,
+                       "prijs":  7.1
+                   }
+               ],
+    "totaal":  77.9
+}

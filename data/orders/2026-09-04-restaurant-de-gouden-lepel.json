@@ -1,0 +1,38 @@
+{
+    "klant_id":  "restaurant-de-gouden-lepel",
+    "klant_naam":  "Restaurant De Gouden Lepel",
+    "besteld_op":  "2026-09-01T11:00:00.000Z",
+    "leverdatum":  "2026-09-04",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  7,
+                       "prijs":  6.9
+                   },
+                   {
+                       "product_id":  "truffelkaas-300g",
+                       "naam":  "Truffelkaas 300g",
+                       "eenheid":  "stuk",
+                       "aantal":  10,
+                       "prijs":  9.5
+                   },
+                   {
+                       "product_id":  "geitenkaas-200g",
+                       "naam":  "Geitenkaas 200g",
+                       "eenheid":  "stuk",
+                       "aantal":  9,
+                       "prijs":  3.75
+                   },
+                   {
+                       "product_id":  "comte-12mnd-kg",
+                       "naam":  "Comté 12 maanden",
+                       "eenheid":  "kg",
+                       "aantal":  7.5,
+                       "prijs":  20
+                   }
+               ],
+    "totaal":  327.05
+}

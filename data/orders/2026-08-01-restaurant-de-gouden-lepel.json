@@ -1,0 +1,17 @@
+{
+    "klant_id":  "restaurant-de-gouden-lepel",
+    "klant_naam":  "Restaurant De Gouden Lepel",
+    "besteld_op":  "2026-07-29T13:00:00.000Z",
+    "leverdatum":  "2026-08-01",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "truffelkaas-300g",
+                       "naam":  "Truffelkaas 300g",
+                       "eenheid":  "stuk",
+                       "aantal":  2,
+                       "prijs":  9.5
+                   }
+               ],
+    "totaal":  19
+}

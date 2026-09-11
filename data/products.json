@@ -4,7 +4,7 @@
     "naam": "Brie 500g",
     "categorie": "Zachte kaas",
     "eenheid": "stuk",
-    "inkoopprijs": 3.2,
+    "inkoopprijs": 3.20,
     "actief": true
   },
   {
@@ -12,15 +12,55 @@
     "naam": "Oude kaas (belegen)",
     "categorie": "Harde kaas",
     "eenheid": "kg",
-    "inkoopprijs": 6.1,
+    "inkoopprijs": 6.10,
     "actief": true
   },
   {
-    "id": "test",
-    "naam": "test",
+    "id": "geitenkaas-200g",
+    "naam": "Geitenkaas 200g",
     "categorie": "Zachte kaas",
     "eenheid": "stuk",
-    "inkoopprijs": 1,
+    "inkoopprijs": 2.80,
+    "actief": true
+  },
+  {
+    "id": "camembert-250g",
+    "naam": "Camembert 250g",
+    "categorie": "Zachte kaas",
+    "eenheid": "stuk",
+    "inkoopprijs": 3.10,
+    "actief": true
+  },
+  {
+    "id": "comte-12mnd-kg",
+    "naam": "Comté 12 maanden",
+    "categorie": "Harde kaas",
+    "eenheid": "kg",
+    "inkoopprijs": 14.50,
+    "actief": true
+  },
+  {
+    "id": "gouda-jong-belegen-kg",
+    "naam": "Gouda jong belegen",
+    "categorie": "Harde kaas",
+    "eenheid": "kg",
+    "inkoopprijs": 5.40,
+    "actief": true
+  },
+  {
+    "id": "roquefort-150g",
+    "naam": "Roquefort 150g",
+    "categorie": "Blauwe kaas",
+    "eenheid": "stuk",
+    "inkoopprijs": 5.20,
+    "actief": true
+  },
+  {
+    "id": "truffelkaas-300g",
+    "naam": "Truffelkaas 300g",
+    "categorie": "Specialiteiten",
+    "eenheid": "stuk",
+    "inkoopprijs": 6.75,
     "actief": true
   }
 ]

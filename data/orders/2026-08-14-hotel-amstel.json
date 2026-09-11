@@ -1,0 +1,17 @@
+{
+    "klant_id":  "hotel-amstel",
+    "klant_naam":  "Hotel Amstel",
+    "besteld_op":  "2026-08-11T15:00:00.000Z",
+    "leverdatum":  "2026-08-14",
+    "status":  "bevestigd",
+    "regels":  [
+                   {
+                       "product_id":  "truffelkaas-300g",
+                       "naam":  "Truffelkaas 300g",
+                       "eenheid":  "stuk",
+                       "aantal":  6,
+                       "prijs":  9.25
+                   }
+               ],
+    "totaal":  55.5
+}

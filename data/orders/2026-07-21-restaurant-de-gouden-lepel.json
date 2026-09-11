@@ -1,0 +1,17 @@
+{
+    "klant_id":  "restaurant-de-gouden-lepel",
+    "klant_naam":  "Restaurant De Gouden Lepel",
+    "besteld_op":  "2026-07-18T15:00:00.000Z",
+    "leverdatum":  "2026-07-21",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  8,
+                       "prijs":  4
+                   }
+               ],
+    "totaal":  32
+}

@@ -1,0 +1,17 @@
+{
+    "klant_id":  "hotel-amstel",
+    "klant_naam":  "Hotel Amstel",
+    "besteld_op":  "2026-08-15T10:00:00.000Z",
+    "leverdatum":  "2026-08-18",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  8,
+                       "prijs":  4.1
+                   }
+               ],
+    "totaal":  32.8
+}

@@ -1,0 +1,24 @@
+{
+    "klant_id":  "bistro-nooitgedacht",
+    "klant_naam":  "Bistro Nooitgedacht",
+    "besteld_op":  "2026-08-10T17:00:00.000Z",
+    "leverdatum":  "2026-08-13",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  2,
+                       "prijs":  7.1
+                   },
+                   {
+                       "product_id":  "camembert-250g",
+                       "naam":  "Camembert 250g",
+                       "eenheid":  "stuk",
+                       "aantal":  8,
+                       "prijs":  4.15
+                   }
+               ],
+    "totaal":  47.4
+}

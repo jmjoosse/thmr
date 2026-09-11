@@ -1,0 +1,38 @@
+{
+    "klant_id":  "kaaswinkel-van-dam",
+    "klant_naam":  "Kaaswinkel Van Dam",
+    "besteld_op":  "2026-07-12T16:00:00.000Z",
+    "leverdatum":  "2026-07-15",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "camembert-250g",
+                       "naam":  "Camembert 250g",
+                       "eenheid":  "stuk",
+                       "aantal":  9,
+                       "prijs":  4
+                   },
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  7,
+                       "prijs":  6.75
+                   },
+                   {
+                       "product_id":  "brie-500g",
+                       "naam":  "Brie 500g",
+                       "eenheid":  "stuk",
+                       "aantal":  1,
+                       "prijs":  3.95
+                   },
+                   {
+                       "product_id":  "gouda-jong-belegen-kg",
+                       "naam":  "Gouda jong belegen",
+                       "eenheid":  "kg",
+                       "aantal":  4.5,
+                       "prijs":  7.2
+                   }
+               ],
+    "totaal":  119.6
+}

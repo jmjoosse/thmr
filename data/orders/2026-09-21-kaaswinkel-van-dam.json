@@ -1,0 +1,17 @@
+{
+    "klant_id":  "kaaswinkel-van-dam",
+    "klant_naam":  "Kaaswinkel Van Dam",
+    "besteld_op":  "2026-09-18T14:00:00.000Z",
+    "leverdatum":  "2026-09-21",
+    "status":  "geleverd",
+    "regels":  [
+                   {
+                       "product_id":  "geitenkaas-200g",
+                       "naam":  "Geitenkaas 200g",
+                       "eenheid":  "stuk",
+                       "aantal":  4,
+                       "prijs":  3.6
+                   }
+               ],
+    "totaal":  14.4
+}

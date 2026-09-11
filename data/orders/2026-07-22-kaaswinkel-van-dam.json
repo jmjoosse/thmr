@@ -1,0 +1,38 @@
+{
+    "klant_id":  "kaaswinkel-van-dam",
+    "klant_naam":  "Kaaswinkel Van Dam",
+    "besteld_op":  "2026-07-19T16:00:00.000Z",
+    "leverdatum":  "2026-07-22",
+    "status":  "ontvangen",
+    "regels":  [
+                   {
+                       "product_id":  "gouda-jong-belegen-kg",
+                       "naam":  "Gouda jong belegen",
+                       "eenheid":  "kg",
+                       "aantal":  2.5,
+                       "prijs":  7.2
+                   },
+                   {
+                       "product_id":  "oude-kaas-kg",
+                       "naam":  "Oude kaas (belegen)",
+                       "eenheid":  "kg",
+                       "aantal":  6.5,
+                       "prijs":  8.1
+                   },
+                   {
+                       "product_id":  "roquefort-150g",
+                       "naam":  "Roquefort 150g",
+                       "eenheid":  "stuk",
+                       "aantal":  6,
+                       "prijs":  6.75
+                   },
+                   {
+                       "product_id":  "geitenkaas-200g",
+                       "naam":  "Geitenkaas 200g",
+                       "eenheid":  "stuk",
+                       "aantal":  8,
+                       "prijs":  3.6
+                   }
+               ],
+    "totaal":  139.95
+}
