@@ -1,6 +1,6 @@
 const CONFIG = {
   githubOwner: "jmjoosse",
-  githubRepo: "Thamar",
+  githubRepo: "thmr",
   githubBranch: "main",
 
   // Fine-grained personal access token met ALLEEN "Contents: Read and write"
@@ -12,5 +12,5 @@ const CONFIG = {
   //
   // Vul dit token rechtstreeks in dit bestand in (niet via de chat/AI delen)
   // en commit het. Laat leeg om het portaal read-only te testen.
-  githubToken: "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",
+  githubToken: "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",
 };
