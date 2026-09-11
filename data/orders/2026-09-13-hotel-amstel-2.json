@@ -1,0 +1,24 @@
+{
+  "klant_id": "hotel-amstel",
+  "klant_naam": "Hotel Amstel",
+  "besteld_op": "2026-09-11T09:23:35.950Z",
+  "leverdatum": "2026-09-13",
+  "status": "ontvangen",
+  "regels": [
+    {
+      "product_id": "brie-500g",
+      "naam": "Brie 500g",
+      "eenheid": "stuk",
+      "aantal": 24,
+      "prijs": 4.1
+    },
+    {
+      "product_id": "oude-kaas-kg",
+      "naam": "Oude kaas (belegen)",
+      "eenheid": "kg",
+      "aantal": 2,
+      "prijs": 8.5
+    }
+  ],
+  "totaal": 115.39999999999999
+}
