@@ -9,36 +9,52 @@
 <body>
   <div class="topbar">
     <h1 id="klant-naam">Bestelportaal</h1>
-    <button class="link" id="uitloggen">Uitloggen</button>
+    <div style="display: flex; gap: 16px; align-items: center">
+      <a href="#" id="link-bestellingen">Mijn bestellingen</a>
+      <button class="link" id="uitloggen">Uitloggen</button>
+    </div>
   </div>
 
   <main class="inhoud">
-    <p><span class="badge-todo">Stap 2</span> Catalogus, winkelwagen en bestellen volgen hier.</p>
-    <p id="welkom"></p>
+    <div class="catalogus-layout">
+      <section id="bestel-paneel">
+        <div id="producten-body"></div>
+      </section>
+
+      <aside class="cart-kaart">
+        <h2 style="font-size: 1rem; margin-top: 0">Winkelwagen</h2>
+        <ul id="cart-lijst" class="cart-lijst"></ul>
+        <div class="cart-totaalregel">
+          <span>Totaal</span>
+          <strong id="cart-totaal">€ 0,00</strong>
+        </div>
+        <p class="cart-info">Levering op: <strong id="leverdatum">-</strong></p>
+        <p class="melding-fout" id="minimum-melding"></p>
+        <form id="bestel-form">
+          <button type="submit" id="bestel-knop" disabled>Bestelling plaatsen</button>
+          <p class="melding-fout" id="bestel-fout"></p>
+        </form>
+      </aside>
+
+      <div id="bevestiging" class="kaart" hidden style="max-width: 480px">
+        <h2 style="font-size: 1.1rem">Bestelling ontvangen</h2>
+        <p id="bevestiging-tekst"></p>
+        <p>
+          <a href="bestellingen.html">Bekijk mijn bestellingen</a>
+        </p>
+        <button id="nieuwe-bestelling">Nieuwe bestelling starten</button>
+      </div>
+    </div>
   </main>
 
+  <script src="js/config.js"></script>
+  <script src="js/github-api.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/bestel-utils.js"></script>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const klantId = params.get("klant") || "";
-    const ingelogdeKlantId = Auth.verplichtKlantSessie(klantId);
-
-    if (ingelogdeKlantId) {
-      fetch("data/customers.json", { cache: "no-store" })
-        .then((r) => r.json())
-        .then((klanten) => {
-          const klant = klanten.find((k) => k.id === ingelogdeKlantId);
-          if (klant) {
-            document.getElementById("klant-naam").textContent = klant.naam;
-            document.getElementById("welkom").textContent = `Ingelogd als ${klant.naam}.`;
-          }
-        });
-    }
-
-    document.getElementById("uitloggen").addEventListener("click", () => {
-      Auth.logoutKlant();
-      window.location.href = `index.html?klant=${encodeURIComponent(klantId)}`;
-    });
+    const klantIdVoorLink = new URLSearchParams(window.location.search).get("klant") || "";
+    document.getElementById("link-bestellingen").href = `bestellingen.html?klant=${encodeURIComponent(klantIdVoorLink)}`;
   </script>
+  <script src="js/catalogus.js"></script>
 </body>
 </html>

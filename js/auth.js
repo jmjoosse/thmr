@@ -41,6 +41,25 @@ const Auth = (() => {
       CUSTOMER_SESSION_KEY,
       JSON.stringify({ klantId, ingelogdOp: Date.now() })
     );
+
+    // Laatste_login bijwerken is best effort: mag de login zelf nooit blokkeren.
+    if (typeof GitHubAPI !== "undefined") {
+      GitHubAPI.getJson("data/customers.json")
+        .then(({ data: alleKlanten, sha }) => {
+          if (!alleKlanten) return;
+          const idx = alleKlanten.findIndex((k) => k.id === klantId);
+          if (idx === -1) return;
+          alleKlanten[idx].laatste_login = new Date().toISOString();
+          return GitHubAPI.putJson(
+            "data/customers.json",
+            alleKlanten,
+            `Laatste login bijgewerkt: ${klant.naam}`,
+            sha
+          );
+        })
+        .catch((e) => console.warn("Kon laatste_login niet bijwerken:", e));
+    }
+
     return { ok: true, klant };
   }
 

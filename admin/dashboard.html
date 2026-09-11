@@ -14,17 +14,22 @@
 
   <main class="inhoud">
     <p>
+      <a href="klanten.html">Klanten &amp; prijzen &rarr;</a>
+    </p>
+    <p>
       <span class="badge-todo">Later</span>
-      Klanten &amp; prijzen, producten, voorraad en rapportage volgen hier
-      (modules 4, 6, 3, 5).
+      Producten, voorraad en rapportage volgen hier (modules 6, 3, 5).
     </p>
 
     <section style="margin-top: 32px; max-width: 480px">
-      <h2 style="font-size: 1rem">GitHub-token</h2>
+      <h2 style="font-size: 1rem">GitHub-token (alleen dit apparaat)</h2>
       <p style="color: var(--kleur-tekst-zwak); font-size: 0.85rem">
-        Nodig om wijzigingen (bestellingen, klanten, producten) als commit weg
-        te schrijven naar de repo. Het token blijft alleen lokaal in deze
-        browser opgeslagen, nooit in een bestand in de repo.
+        Klanten gebruiken voor het plaatsen van bestellingen het token uit
+        <code>js/config.js</code> (dat met de site wordt meegepubliceerd). Dit
+        veld is een optionele override voor dít apparaat/deze browser — handig
+        om admin-functies te testen met een eigen token vóórdat je er een in
+        <code>js/config.js</code> zet. Wordt alleen lokaal opgeslagen, nooit
+        gecommit.
       </p>
       <label for="token">Personal access token (fine-grained, alleen Contents: Read/Write op deze repo)</label>
       <input type="password" id="token" autocomplete="off" />

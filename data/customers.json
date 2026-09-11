@@ -9,8 +9,12 @@
       "maandag": { "dag": "zondag", "tijd": "18:00" },
       "donderdag": { "dag": "woensdag", "tijd": "18:00" }
     },
-    "minimumbedrag": null,
-    "prijslijst": {},
+    "sluitingsdagen": [],
+    "minimumbedrag": 25,
+    "prijslijst": {
+      "brie-500g": 4.10,
+      "oude-kaas-kg": 8.50
+    },
     "laatste_login": null,
     "laatste_bestelling": null
   }

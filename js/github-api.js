@@ -9,7 +9,10 @@ const GitHubAPI = (() => {
   const TOKEN_KEY = "gh_token";
 
   function getToken() {
-    return localStorage.getItem(TOKEN_KEY) || "";
+    // Lokaal ingesteld token (admin-dashboard) heeft voorrang; anders het
+    // token uit config.js, dat met de site wordt meegepubliceerd zodat
+    // klanten zelf bestellingen kunnen wegschrijven zonder eigen token.
+    return localStorage.getItem(TOKEN_KEY) || (typeof CONFIG !== "undefined" && CONFIG.githubToken) || "";
   }
 
   function setToken(token) {
@@ -91,5 +94,17 @@ const GitHubAPI = (() => {
     return putFile(path, JSON.stringify(obj, null, 2) + "\n", message, sha);
   }
 
-  return { getToken, setToken, clearToken, getFile, putFile, getJson, putJson };
+  // Lijst bestanden in een map. Geeft [] terug als de map niet bestaat.
+  async function getDirectory(path) {
+    const token = getToken();
+    const headers = { Accept: "application/vnd.github+json" };
+    if (token) headers.Authorization = `Bearer ${token}`;
+
+    const res = await fetch(`${apiUrl(path)}?ref=${CONFIG.githubBranch}`, { headers });
+    if (res.status === 404) return [];
+    if (!res.ok) throw new Error(`GitHub API fout bij lezen van map ${path}: ${res.status}`);
+    return res.json();
+  }
+
+  return { getToken, setToken, clearToken, getFile, putFile, getJson, putJson, getDirectory };
 })();

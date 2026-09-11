@@ -22,11 +22,17 @@ $files = @(
     "js/config.js",
     "js/auth.js",
     "js/github-api.js",
+    "js/bestel-utils.js",
+    "js/catalogus.js",
+    "js/bestellingen.js",
     "css/style.css",
     "index.html",
     "catalogus.html",
+    "bestellingen.html",
+    "js/admin-klanten.js",
     "admin/index.html",
     "admin/dashboard.html",
+    "admin/klanten.html",
     "data/customers.json",
     "data/products.json",
     "data/stock.json",
@@ -56,7 +62,7 @@ foreach ($relPath in $files) {
     }
 
     $body = @{
-        message = "Stap 1: repo-structuur + pincode-toegang ($relPath)"
+        message = "Stap 1+2+module4: catalogus, bestellen, admin klanten & prijzen ($relPath)"
         content = $base64
         branch  = $Branch
     }

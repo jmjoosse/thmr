@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klanten &amp; prijzen</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1>Klanten &amp; prijzen</h1>
+    <div style="display: flex; gap: 16px; align-items: center">
+      <a href="dashboard.html">Terug naar admin</a>
+      <button class="link" id="uitloggen">Uitloggen</button>
+    </div>
+  </div>
+
+  <main class="inhoud">
+    <section id="lijst-sectie">
+      <button id="nieuwe-klant-knop" style="width: auto; padding: 10px 18px">+ Nieuwe klant</button>
+      <table class="product-tabel" style="margin-top: 16px">
+        <thead>
+          <tr>
+            <th>Klant</th>
+            <th>Actief</th>
+            <th>Laatste login</th>
+            <th>Laatste bestelling</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="klanten-body"></tbody>
+      </table>
+    </section>
+
+    <section id="form-sectie" class="kaart" style="max-width: 640px; margin-top: 24px" hidden>
+      <h2 id="form-titel" style="font-size: 1.1rem">Klant</h2>
+      <form id="klant-form">
+        <label for="naam">Naam</label>
+        <input type="text" id="naam" required />
+
+        <label for="klant-id">Klantcode (in de link, bv. "hotel-amstel")</label>
+        <input type="text" id="klant-id" required />
+        <p class="cart-info" id="klant-id-hint"></p>
+
+        <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px">
+          <input type="checkbox" id="actief" style="width: auto; margin: 0" checked />
+          Actief (kan inloggen)
+        </label>
+
+        <label for="pincode-nieuw">Pincode</label>
+        <input type="text" id="pincode-nieuw" inputmode="numeric" autocomplete="off" />
+        <p class="cart-info" id="pincode-hint"></p>
+
+        <label for="minimumbedrag">Minimumbedrag (leeg = geen minimum)</label>
+        <input type="number" id="minimumbedrag" min="0" step="0.01" />
+
+        <h3 style="font-size: 0.95rem">Leverdagen &amp; cutoff</h3>
+        <table class="product-tabel" style="margin-bottom: 20px">
+          <thead>
+            <tr><th>Dag</th><th>Bestellen tot</th></tr>
+          </thead>
+          <tbody id="leverdagen-body"></tbody>
+        </table>
+
+        <h3 style="font-size: 0.95rem">Sluitingsdagen (uitzonderingen, bv. feestdagen)</h3>
+        <div style="display: flex; gap: 8px; margin-bottom: 8px">
+          <input type="date" id="sluitingsdag-nieuw" style="margin-bottom: 0" />
+          <button type="button" id="sluitingsdag-toevoegen" style="width: auto; padding: 8px 16px">
+            Toevoegen
+          </button>
+        </div>
+        <ul id="sluitingsdagen-lijst" class="cart-lijst" style="margin-bottom: 20px"></ul>
+
+        <h3 style="font-size: 0.95rem">Prijslijst (leeg = niet zichtbaar voor deze klant)</h3>
+        <table class="product-tabel" style="margin-bottom: 20px">
+          <thead>
+            <tr><th>Product</th><th>Inkoopprijs</th><th>Verkoopprijs voor deze klant</th></tr>
+          </thead>
+          <tbody id="prijslijst-body"></tbody>
+        </table>
+
+        <p class="melding-fout" id="form-fout"></p>
+        <div style="display: flex; gap: 12px">
+          <button type="submit" id="opslaan-knop">Opslaan</button>
+          <button type="button" id="annuleren-knop" style="background: var(--kleur-rand); color: var(--kleur-tekst)">
+            Annuleren
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/github-api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/bestel-utils.js"></script>
+  <script src="../js/admin-klanten.js"></script>
+</body>
+</html>
