@@ -20,6 +20,20 @@
       <a href="bestellingen.html">Bestellingen &amp; status &rarr;</a>
       <a href="rapportage.html">Rapportage &amp; CSV-export &rarr;</a>
     </nav>
+
+    <section style="max-width: 480px">
+      <h2 style="font-size: 1rem">GitHub-token (dit apparaat)</h2>
+      <p style="color: var(--kleur-tekst-zwak); font-size: 0.85rem">
+        Nodig om wijzigingen (klanten, producten, voorraad, status) als
+        commit weg te schrijven naar de repo. Wordt alleen lokaal in deze
+        browser bewaard — nooit gecommit, nooit gedeeld met klanten. Zie
+        README.md voor hoe je een token aanmaakt.
+      </p>
+      <label for="token">Personal access token (classic, scope "public_repo")</label>
+      <input type="password" id="token" autocomplete="off" />
+      <button id="token-opslaan">Opslaan</button>
+      <p id="token-status" style="font-size: 0.8rem; color: var(--kleur-tekst-zwak); margin-top: 8px"></p>
+    </section>
   </main>
 
   <script src="../js/auth.js"></script>
@@ -29,6 +43,25 @@
     document.getElementById("uitloggen").addEventListener("click", () => {
       Auth.logoutAdmin();
       window.location.href = "index.html";
+    });
+  </script>
+  <script src="../js/config.js"></script>
+  <script src="../js/github-api.js"></script>
+  <script>
+    const tokenVeld = document.getElementById("token");
+    const status = document.getElementById("token-status");
+
+    if (GitHubAPI.getToken()) {
+      tokenVeld.placeholder = "•••••••••••••••• (al ingesteld)";
+    }
+
+    document.getElementById("token-opslaan").addEventListener("click", () => {
+      const waarde = tokenVeld.value.trim();
+      if (!waarde) return;
+      GitHubAPI.setToken(waarde);
+      tokenVeld.value = "";
+      tokenVeld.placeholder = "•••••••••••••••• (al ingesteld)";
+      status.textContent = "Token opgeslagen in deze browser.";
     });
   </script>
 </body>
