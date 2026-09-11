@@ -1,13 +1,26 @@
 // Dunne laag rondom de GitHub Contents API.
 // Gebruikt als opslag i.p.v. een database: elke schrijfactie is een commit in de repo.
 //
-// Risico (bewust geaccepteerd, zie projectbrief): het token in js/config.js
-// wordt met de site meegepubliceerd en geeft volledige schrijftoegang tot de
-// repo. Voor een grotere/gevoeligere versie: eigen backend.
+// Het token wordt NIET gecommit (GitHub trekt eigen tokenformaten die het in
+// een publieke repo aantreft automatisch in — zie README.md). In plaats
+// daarvan voert de admin het token in via admin/dashboard.html; het wordt
+// alleen lokaal in de browser bewaard. Gevolg: klanten kunnen momenteel geen
+// bestelling zelf wegschrijven vanaf hun eigen apparaat (ze hebben dat token
+// niet) — geaccepteerd als tijdelijke beperking, zie README.md.
 
 const GitHubAPI = (() => {
+  const TOKEN_KEY = "gh_token";
+
   function getToken() {
-    return (typeof CONFIG !== "undefined" && CONFIG.githubToken) || "";
+    return localStorage.getItem(TOKEN_KEY) || "";
+  }
+
+  function setToken(token) {
+    localStorage.setItem(TOKEN_KEY, token);
+  }
+
+  function clearToken() {
+    localStorage.removeItem(TOKEN_KEY);
   }
 
   function apiUrl(path) {
@@ -93,5 +106,5 @@ const GitHubAPI = (() => {
     return res.json();
   }
 
-  return { getToken, getFile, putFile, getJson, putJson, getDirectory };
+  return { getToken, setToken, clearToken, getFile, putFile, getJson, putJson, getDirectory };
 })();
