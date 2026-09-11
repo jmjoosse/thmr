@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1>Admin</h1>
+    <button class="link" id="uitloggen">Uitloggen</button>
+  </div>
+
+  <main class="inhoud">
+    <p>
+      <span class="badge-todo">Later</span>
+      Klanten &amp; prijzen, producten, voorraad en rapportage volgen hier
+      (modules 4, 6, 3, 5).
+    </p>
+
+    <section style="margin-top: 32px; max-width: 480px">
+      <h2 style="font-size: 1rem">GitHub-token</h2>
+      <p style="color: var(--kleur-tekst-zwak); font-size: 0.85rem">
+        Nodig om wijzigingen (bestellingen, klanten, producten) als commit weg
+        te schrijven naar de repo. Het token blijft alleen lokaal in deze
+        browser opgeslagen, nooit in een bestand in de repo.
+      </p>
+      <label for="token">Personal access token (fine-grained, alleen Contents: Read/Write op deze repo)</label>
+      <input type="password" id="token" autocomplete="off" />
+      <button id="token-opslaan">Opslaan</button>
+      <p id="token-status" style="font-size: 0.8rem; color: var(--kleur-tekst-zwak); margin-top: 8px"></p>
+    </section>
+  </main>
+
+  <script src="../js/auth.js"></script>
+  <script>
+    if (!Auth.verplichtAdminSessie()) {
+      // verplichtAdminSessie stuurt al door naar de loginpagina
+    }
+
+    document.getElementById("uitloggen").addEventListener("click", () => {
+      Auth.logoutAdmin();
+      window.location.href = "index.html";
+    });
+  </script>
+  <script src="../js/config.js"></script>
+  <script src="../js/github-api.js"></script>
+  <script>
+    const tokenVeld = document.getElementById("token");
+    const status = document.getElementById("token-status");
+
+    if (GitHubAPI.getToken()) {
+      tokenVeld.placeholder = "•••••••••••••••• (al ingesteld)";
+    }
+
+    document.getElementById("token-opslaan").addEventListener("click", () => {
+      const waarde = tokenVeld.value.trim();
+      if (!waarde) return;
+      GitHubAPI.setToken(waarde);
+      tokenVeld.value = "";
+      tokenVeld.placeholder = "•••••••••••••••• (al ingesteld)";
+      status.textContent = "Token opgeslagen in deze browser.";
+    });
+  </script>
+</body>
+</html>

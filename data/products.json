@@ -1,0 +1,18 @@
+[
+  {
+    "id": "brie-500g",
+    "naam": "Brie 500g",
+    "categorie": "Zachte kaas",
+    "eenheid": "stuk",
+    "inkoopprijs": 3.20,
+    "actief": true
+  },
+  {
+    "id": "oude-kaas-kg",
+    "naam": "Oude kaas (belegen)",
+    "categorie": "Harde kaas",
+    "eenheid": "kg",
+    "inkoopprijs": 6.10,
+    "actief": true
+  }
+]

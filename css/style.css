@@ -1,0 +1,149 @@
+:root {
+  --kleur-achtergrond: #faf7f2;
+  --kleur-kaart: #ffffff;
+  --kleur-tekst: #2b241a;
+  --kleur-tekst-zwak: #7a7264;
+  --kleur-accent: #c98a2b;
+  --kleur-accent-donker: #a06d1e;
+  --kleur-rand: #e6ddd0;
+  --kleur-fout: #b3261e;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+}
+
+.pagina-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.kaart {
+  background: var(--kleur-kaart);
+  border: 1px solid var(--kleur-rand);
+  border-radius: var(--radius);
+  padding: 32px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.kaart h1 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+}
+
+.kaart p.sub {
+  margin: 0 0 24px;
+  color: var(--kleur-tekst-zwak);
+  font-size: 0.9rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: var(--kleur-tekst-zwak);
+}
+
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  border: 1px solid var(--kleur-rand);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+}
+
+input:focus {
+  outline: 2px solid var(--kleur-accent);
+  outline-offset: 1px;
+}
+
+button {
+  width: 100%;
+  padding: 11px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: var(--kleur-accent);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--kleur-accent-donker);
+}
+
+button:disabled {
+  background: var(--kleur-rand);
+  color: var(--kleur-tekst-zwak);
+  cursor: not-allowed;
+}
+
+.melding-fout {
+  color: var(--kleur-fout);
+  font-size: 0.85rem;
+  margin: -8px 0 16px;
+  min-height: 1em;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: var(--kleur-kaart);
+  border-bottom: 1px solid var(--kleur-rand);
+}
+
+.topbar h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.topbar a,
+.topbar button.link {
+  color: var(--kleur-tekst-zwak);
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: auto;
+  padding: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+main.inhoud {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.badge-todo {
+  display: inline-block;
+  background: #f0e6d2;
+  color: var(--kleur-accent-donker);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}

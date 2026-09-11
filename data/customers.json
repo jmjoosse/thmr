@@ -1,0 +1,17 @@
+[
+  {
+    "id": "hotel-amstel",
+    "naam": "Hotel Amstel",
+    "actief": true,
+    "pincodeHash": "9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0",
+    "leverdagen": ["maandag", "donderdag"],
+    "cutoff": {
+      "maandag": { "dag": "zondag", "tijd": "18:00" },
+      "donderdag": { "dag": "woensdag", "tijd": "18:00" }
+    },
+    "minimumbedrag": null,
+    "prijslijst": {},
+    "laatste_login": null,
+    "laatste_bestelling": null
+  }
+]
