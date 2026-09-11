@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bestelportaal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="pagina-login">
+    <div class="kaart">
+      <h1 id="titel">Bestelportaal</h1>
+      <p class="sub" id="subtitel">Voer je pincode in om verder te gaan.</p>
+
+      <form id="login-form">
+        <label for="pincode">Pincode</label>
+        <input
+          type="password"
+          id="pincode"
+          inputmode="numeric"
+          autocomplete="off"
+          autofocus
+          required
+        />
+        <div class="melding-fout" id="melding-fout"></div>
+        <button type="submit" id="login-knop">Inloggen</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const klantId = params.get("klant") || "";
+
+    if (!klantId) {
+      document.getElementById("titel").textContent = "Ongeldige link";
+      document.getElementById("subtitel").textContent =
+        "Deze link mist een klantcode. Vraag de kaashandel om je persoonlijke bestellink.";
+      document.getElementById("login-form").style.display = "none";
+    }
+
+    // Al ingelogd op dit toestel voor deze klant? Meteen doorsturen.
+    if (klantId && Auth.klantSessie() === klantId) {
+      window.location.href = `catalogus.html?klant=${encodeURIComponent(klantId)}`;
+    }
+
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const knop = document.getElementById("login-knop");
+      const foutveld = document.getElementById("melding-fout");
+      const pincode = document.getElementById("pincode").value;
+
+      foutveld.textContent = "";
+      knop.disabled = true;
+      knop.textContent = "Bezig...";
+
+      try {
+        const result = await Auth.loginKlant(klantId, pincode);
+        if (!result.ok) {
+          foutveld.textContent = result.fout;
+          knop.disabled = false;
+          knop.textContent = "Inloggen";
+          return;
+        }
+        window.location.href = `catalogus.html?klant=${encodeURIComponent(klantId)}`;
+      } catch (err) {
+        foutveld.textContent = "Er ging iets mis. Probeer het opnieuw.";
+        knop.disabled = false;
+        knop.textContent = "Inloggen";
+      }
+    });
+  </script>
+</body>
+</html>

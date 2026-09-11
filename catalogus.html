@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catalogus</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <h1 id="klant-naam">Bestelportaal</h1>
+    <button class="link" id="uitloggen">Uitloggen</button>
+  </div>
+
+  <main class="inhoud">
+    <p><span class="badge-todo">Stap 2</span> Catalogus, winkelwagen en bestellen volgen hier.</p>
+    <p id="welkom"></p>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const klantId = params.get("klant") || "";
+    const ingelogdeKlantId = Auth.verplichtKlantSessie(klantId);
+
+    if (ingelogdeKlantId) {
+      fetch("data/customers.json", { cache: "no-store" })
+        .then((r) => r.json())
+        .then((klanten) => {
+          const klant = klanten.find((k) => k.id === ingelogdeKlantId);
+          if (klant) {
+            document.getElementById("klant-naam").textContent = klant.naam;
+            document.getElementById("welkom").textContent = `Ingelogd als ${klant.naam}.`;
+          }
+        });
+    }
+
+    document.getElementById("uitloggen").addEventListener("click", () => {
+      Auth.logoutKlant();
+      window.location.href = `index.html?klant=${encodeURIComponent(klantId)}`;
+    });
+  </script>
+</body>
+</html>
